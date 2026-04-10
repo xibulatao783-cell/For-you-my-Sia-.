@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Love Experience</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #111;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+#text {
+    margin-top: 20px;
+    font-size: 18px;
+    max-width: 80%;
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="startExperience()">Start Experience</button>
+
+<div id="text"></div>
+
+<!-- 🎵 YouTube Music -->
+<iframe id="musicFrame" width="0" height="0"
+src="https://www.youtube.com/embed/3SgqqgTApas?enablejsapi=1&loop=1&playlist=3SgqqgTApas"
+allow="autoplay">
+</iframe>
+
+<script>
+let message = "I just want you to know that I truly appreciate you. You make my life feel lighter and better in ways I can’t fully explain. Even on ordinary days, you somehow make everything feel special just by being there. I’m grateful for you, and I hope you always feel valued, cared for, and loved — not just today, but always.";
+
+let i = 0;
+
+function typeEffect() {
+    if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeEffect, 50);
+    }
+}
+
+function startExperience() {
+    document.querySelector("button").style.display = "none";
+
+    // 🎵 play YouTube music
+    document.getElementById("musicFrame").src += "&autoplay=1";
+
+    typeEffect();
+}
+</script>
+
+</body>
+</html>
